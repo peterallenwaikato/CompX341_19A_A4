@@ -1,5 +1,5 @@
 import time
-
+import math
 import redis
 from flask import Flask
 
@@ -20,7 +20,7 @@ def get_hit_count():
 @app.route('/isPrime/<int:prime>')
 def isPrime(prime):
 	if prime > 1:    
-		for i in range(2,prime):
+		for i in range(2,int(math.sqrt(prime)+ 1)):
 			if (prime % i) == 0:          
 				break
 		else:
